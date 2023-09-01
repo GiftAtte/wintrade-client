@@ -30,7 +30,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "../../node_modules/bootswatch/dist/lux/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -93,9 +94,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+          "node_modules/bootstrap-icons/dist/css/bootstrap-icons.css",
+           "src/styles.scss"
+
             ],
-            "scripts": []
+            "scripts": [
+             
+            ]
           }
         }
       }
