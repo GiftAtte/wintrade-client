@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/line-awesome/dist/line-awesome/css/line-awesome.css";
+/* @import "../node-modules/bootstrap-icons/font/bootstrap-icons.css"; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+   }
+   
+   a{
+    text-decoration: none !important ;
+   }
+   
+   .bg-purple{
+    background-color: rgb(87, 0, 128);
+   }
+   
+  
+   
+   .signUp{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+   }
+   
+   .form{
+    max-width: 500px;
+    width: 100%;
+    /* width: ; */
+   }
+   
+   html, body { height: 100%; }
+  
+   

@@ -1,10 +1,13 @@
- @import "~bootstrap/dist/css/bootstrap.css";
+// @import"/src/assets/css/spectre.css";
+@import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~line-awesome/dist/line-awesome/css/line-awesome.css";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+@import "/node_modules/ngx-easy-table/style.scss";
 @import "~bootswatch/dist/pulse/bootstrap.min.css";
-@import "../node_modules/bootstrap/scss/functions";
-$primary: #900 !important;
-// @import "~node_modules/bootswatch/dist/lux/bootstrap";
-// @import "~node_modules/bootswatch/dist/lux/bootswatch";
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -77,3 +80,190 @@ $primary: #900 !important;
     z-index: 1500;
   }
 /* Importing Bootstrap SCSS file. */
+.signUp{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ }
+ .w-40{
+  width: 35%;
+ }
+ .pointer{
+  cursor: pointer;
+}
+
+
+
+
+
+.modal {
+  align-items: center;
+  bottom: 0;
+  display: none;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: .4rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.modal:target,
+.modal.active {
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+  z-index: 400;
+}
+
+.modal:target .modal-overlay,
+.modal.active .modal-overlay {
+  background: rgba(37, 38, 39, 0.75);
+  bottom: 0;
+  cursor: default;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modal:target .modal-container,
+.modal.active .modal-container {
+  animation: slide-down .2s ease 1;
+  z-index: 1;
+}
+
+.modal.modal-sm .modal-container {
+  max-width: 320px;
+  padding: 0 .4rem;
+}
+
+.modal.modal-lg .modal-overlay {
+  background: #fff;
+}
+
+.modal.modal-lg .modal-container {
+  box-shadow: none;
+  max-width: 960px;
+}
+
+.modal-container {
+  background: #fff;
+  border-radius: .1rem;
+  box-shadow: 0 .2rem .5rem rgba(48, 55, 66, .3);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-height: 75vh;
+  max-width: 640px;
+  padding: 0 .8rem;
+  width: 100%;
+}
+
+.modal-container.modal-fullheight {
+  max-height: 100vh;
+}
+
+.modal-container .modal-header {
+  color: #303742;
+  padding: .8rem;
+}
+
+.modal-container .modal-body {
+  overflow-y: auto;
+  padding: .8rem;
+  position: relative;
+}
+
+.modal-container .modal-footer {
+  padding: .8rem;
+  text-align: right;
+}
+
+.tab {
+  align-items: center;
+  border-bottom: .05rem solid #dadee4;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: .2rem 0 .15rem 0;
+}
+
+.tab .tab-item {
+  margin-top: 0;
+}
+
+.tab .tab-item a {
+  border-bottom: .1rem solid transparent;
+  color: inherit;
+  display: block;
+  margin: 0 .4rem 0 0;
+  padding: .4rem .2rem .3rem .2rem;
+  text-decoration: none;
+}
+
+.tab .tab-item a:focus,
+.tab .tab-item a:hover {
+  color: #5755d9;
+}
+
+.tab .tab-item.active a,
+.tab .tab-item a.active {
+  border-bottom-color: #5755d9;
+  color: #5755d9;
+}
+
+.tab .tab-item.tab-action {
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  text-align: right;
+}
+
+.tab .tab-item .btn-clear {
+  margin-top: -.2rem;
+}
+
+.tab.tab-block .tab-item {
+  -ms-flex: 1 0 0;
+  flex: 1 0 0;
+  text-align: center;
+}
+
+.tab.tab-block .tab-item a {
+  margin: 0;
+}
+
+.tab.tab-block .tab-item .badge[data-badge]::after {
+  position: absolute;
+  right: .1rem;
+  top: .1rem;
+  transform: translate(0, 0);
+}
+
+.tab:not(.tab-block) .badge {
+  padding-right: 0;
+}
+
+
+
+/* Importing Bootstrap SCSS file. */
+ @import "node_modules/animate.css/animate.min.css";
+
+@import"node_modules/sweetalert2/src/sweetalert2.scss";
+      
+      
+
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

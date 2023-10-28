@@ -1,0 +1,30 @@
+<section  class="pb-5 bg-primary" style="background-image: url(../../../assets/img/auth-bg.png); background-size: cover;">
+ <div class="container">
+  <h1 class="display-5 mb-5 text-capitalize text-white pt-5"> Services</h1>
+  <div class="row text-center g-3" >
+   
+
+   <div class="col-lg-6" *ngFor="let product of products">
+      <app-info-box
+
+      [iconClass]="'bi bi-arrow-up-left-circle'"
+      [title]="product.name"
+      [content]="product.desc"
+      [showLink]="true"
+      [bodyClass]="'text-bg-primary'"
+      [borderClass]="'border-0'"
+      [buttonClass]="'btn-success'"
+      [textClass]="'lead fs-5 text-start'"
+      path="/profile"
+      [buttonText]="'Enroll for '+(product.price | currency)"
+     > 
+     <i [class]="product.image"></i>
+     </app-info-box>
+   </div>
+   
+
+
+
+  </div>
+ </div>
+</section>

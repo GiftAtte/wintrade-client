@@ -1,0 +1,130 @@
+
+ <!-- <div> -->
+  <!-- <app-sidebar></app-sidebar> -->
+  <!-- <app-header></app-header> -->
+ <!-- </div> -->
+ <div class=" row px-md-5 my-4 d-flex justify-content-between align-items-center">
+  <div class="col-md-3 my-2">
+    <app-info-box
+    [iconClass]="'las la-chart-line'"
+    title="Products"
+    [content]="productCount"
+    [showLink]="false"
+    [bodyClass]="'text-bg-primary'"
+    [borderClass]="'border-2 border'"
+    [buttonClass]="'btn-success'"
+    [textClass]="'lead fs-5 text-center '"
+   > 
+   <i class="bi bi-box-fill text-white pt-3 display-6"></i>
+   </app-info-box>
+  </div>
+<div class="col-md-3 my-2 ">
+  <app-info-box
+  [iconClass]="'las la-chart-line'"
+  title="Income"
+  [content]="income|currency"
+  [showLink]="false"
+  [bodyClass]="'text-bg-success text-center '"
+  [borderClass]="'border-2 border'"
+  [buttonClass]="'btn-success'"
+  [textClass]="'lead fs-5 text-center'"
+ > 
+ <i class="bi bi-currency-dollar text-white  pt-3 display-6"></i>
+ </app-info-box>
+</div>
+
+<div class="col-md-3 my-2">
+  <app-info-box
+  [iconClass]="'las la-chart-line'"
+  title="users"
+  [content]="userCount"
+  [showLink]="false"
+  [bodyClass]="'text-bg-danger'"
+  [borderClass]="'border-2 border'"
+  [buttonClass]="'btn-success'"
+  [textClass]="'lead fs-5 text-center'"
+ > 
+ <i class="bi bi-people text-white pt-3 display-6"></i>
+ </app-info-box>
+</div>
+
+
+<div class="col-md-3 my-2">
+  <app-info-box
+  [iconClass]="'las la-chart-line'"
+  title="Emails"
+  [content]="0"
+  [showLink]="false"
+  [bodyClass]="'text-bg-warning text-center'"
+  [borderClass]="'border-2 border'"
+  [buttonClass]="'btn-success'"
+  [textClass]="'lead fs-5 text-center'"
+ > 
+ <i class="bi bi-envelope-check-fill text-white pt-3 display-6"></i>
+ </app-info-box>
+</div>
+ </div>
+ <div class="container">
+  <h4 class="mt-3 mx-2">Recent Sales History</h4>
+  <hr>
+  <div class="table-responsive ">
+    <div class="column col-px-5 table">
+      <ngx-table
+      [configuration]="configuration"
+      [data]="payments"
+      [columns]="columns"
+      (event)="onEvent($event)"
+    >
+      <ng-template let-row>
+        <td>
+          <span class="font-small">{{ row.user.name }}</span>
+        </td>
+        <td>
+          <span class="font-small">{{ row.product.name }}</span>
+        </td>
+        <td>
+          <span class="font-small">{{ row.amount }}</span>
+        </td>
+        <td>
+          <span class="font-small">{{ row.created_at|date }}</span>
+        </td>
+        <td>
+          <span class="font-small text-primary">{{ row.transaction_id}}</span>
+        </td>
+       
+      </ng-template>
+    </ngx-table>
+    </div>
+  
+    <ng-template #actionTpl let-row let-rowIndex="rowIndex">
+     <div class="btn btn-primary me-2" ><i class="las la-user-edit"></i>
+     </div>
+     
+     <div class="btn btn-danger"><i class="las la-trash-alt"></i></div>
+    </ng-template>
+   </div>
+  </div>
+
+
+ <div *ngIf="modal" class="modal active">
+  <div class="modal-overlay"></div>
+  <div class="modal-container" role="document">
+    <div class="modal-header">
+      <button
+        href="#modals-sizes"
+        class="btn btn-clear float-right"
+        (click)="hideModal()"
+        aria-label="Close"
+      ></button>
+      <div class="modal-title h5 float-left">Update User</div>
+    </div>
+    <div class="modal-body">
+      <div class="content">
+        <pre>{{ selected }}</pre>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary btn-sm" (click)="hideModal()">Close</button>
+    </div>
+  </div>
+</div>

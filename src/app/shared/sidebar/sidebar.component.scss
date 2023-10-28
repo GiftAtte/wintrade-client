@@ -1,0 +1,40 @@
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  // background-color: #333; 
+  transition: left 0.3s;
+  z-index: 100;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-top: 50px;
+}
+
+.sidebar li {
+  padding: 10px;
+}
+
+.sidebar a {
+  // color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.close-button{
+ position: absolute;
+ top: 10px;
+ right: 4px;
+}
+
+
+li a{
+  cursor: pointer;
+}

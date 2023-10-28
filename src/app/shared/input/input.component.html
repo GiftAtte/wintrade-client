@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+  <ng-container *ngIf="inputType==='text';else textArea">
+    <div class="form-group mb-3" >
+      <label>{{label}}</label>
+      <input [formControl]="control" class="form-control" [ngClass]="{'is-invalid': control.invalid && control.touched}"/>
+      <div *ngIf="control.invalid && control.touched" class="text-danger">
+        <div *ngIf="required && control.hasError('required')">{{errorMessages}}</div>
+        <div *ngIf="pattern && control.hasError('pattern')">{{errorMessages}}</div>
+        <div *ngIf="email && control.hasError('email')">{{errorMessages}}</div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #textArea>
+    <div class="form-group mb-3" >
+      <label>{{label}}</label>
+      <textarea  [formControl]="control" class="form-control" [ngClass]="{'is-invalid': control.invalid && control.touched}"></textarea>
+      <div *ngIf="control.invalid && control.touched" class="text-danger">
+        <div *ngIf="required && control.hasError('required')">{{errorMessages}}</div>
+        <div *ngIf="pattern && control.hasError('pattern')">{{errorMessages}}</div>
+        <div *ngIf="email && control.hasError('email')">{{errorMessages}}</div>
+      </div>
+    </div>
+  </ng-template>
+  <!-- Call the setAttributes function to set dynamic attributes -->
+  {{ setAttributes() }}
+  

@@ -1,0 +1,116 @@
+<div class="row">
+    <div class="col-md-4 px-2">
+
+        <div class="card ">
+           <div class="contianer text-center">
+            <img src="../../../assets/img/profile.png" style="width: 200px;" class="card-img-top text-bg-primary" alt="...">
+           </div>
+            <div class="container">
+                <mat-list>
+                    <div mat-subheader class="text-center fs-5 fw-bold">Personal Information</div>
+                    <mat-list-item >
+                        <mat-icon matListItemIcon class="text-primary">account_circle</mat-icon>
+                        <div matListItemTitle>{{user.name}}</div>
+                      </mat-list-item>
+                    <mat-list-item >
+                      <mat-icon matListItemIcon class="text-primary">email</mat-icon>
+                      <div matListItemTitle>{{user.email}}</div>
+                    </mat-list-item>
+                    <mat-list-item >
+                        <mat-icon matListItemIcon class="text-primary">phone</mat-icon>
+                        <div matListItemTitle>+234 {{user.phone_number}}</div>
+                      </mat-list-item>
+                    <mat-divider></mat-divider>
+                  </mat-list>
+            </div>
+          </div>
+
+    </div>
+    <div class="col">
+        <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start">
+           
+            <mat-tab label="BUY PRODUCTS">
+               <div class="container my-3">
+                <div class="card text-bg-primary my-2" *ngFor="let product of products">
+                    <div class="card-body text-center border-0">
+                     <div class="h1 mb-3  text-black circle-icon mx-auto d-flex  justify-content-center text-sm-start">
+                     <i [class]="product.image"></i>
+                     </div>
+                     <h3 >
+                    {{product.name}}
+                     </h3>
+                     <div class=" px-md-5 px-sm-1 text-sm-start fs-sm-6 py-3">
+                       {{product.desc}}
+                     </div>
+                     <angular4-paystack
+  [class]="'btn btn-success btn-lg'"
+  [email]="currentUser.email"
+  [amount]="product.price*100"
+  [style]="{'margin': 'auto', display: 'block'}"
+  [ref]="reference"
+  [currency]="'NGN'"
+  (close)="paymentCancel()"
+  (callback)="paymentDone($event)"
+  (paymentInit)="paymentInit(product)"
+>Pay With Paystack</angular4-paystack> 
+                    </div>
+                       </div>
+               </div>
+             </mat-tab>
+             <mat-tab label="TRANSACTIONS">
+                <table class="table">
+                <thead>
+                 <tr>
+                     <th>#</th>
+                     <th>Product</th>
+                     <th>Amount</th>
+                     <th>Date</th>
+                     <th>Status</th>
+                     <th>Transaction ID</th>
+                 </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let payment of userPayments;let index=index">
+                  <td>{{index+1}}</td>
+                  <td>{{payment.product.name}}</td>
+                  <td>{{payment.amount|currency}}</td>
+                  <td>{{payment.created_at|date}}</td>
+                  <td class="text-success">{{payment.status=='success'?'completed':'Faild'}}</td>
+                  <td class="text-primary">{{payment.transaction_id}}</td>
+                  </tr>
+                </tbody>
+                </table>
+
+         </mat-tab>
+         
+         <mat-tab label="SECURITY">
+            <div class="container card card-body">
+             <form [formGroup]="userForm">
+             <div class="form-group mb-3">
+                 <label for="email">Username</label>
+                 <input type="text " formControlName="name" class="form-control">
+             </div>
+             <div class="form-group mb-3">
+                 <label for="email">Phone Number</label>
+                 <input type="text " formControlName="phone_number" class="form-control">
+             </div>
+             <div class="form-group mb-3">
+                 <label for="email">Email</label>
+                 <input type="email" formControlName="email" class="form-control">
+             </div>
+             <div class="form-group mb-3">
+                 <label for="email">Password</label>
+                 <input type="password" formControlName="password" class="form-control">
+             </div>
+            <div>
+             <button class="btn btn-primary float-end my-3" (click)="updateUser()" >Update Profile</button>
+            </div>
+         </form>
+            </div>
+            
+         </mat-tab>
+          </mat-tab-group>
+          
+          
+    </div>
+</div>

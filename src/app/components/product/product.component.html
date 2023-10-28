@@ -1,0 +1,72 @@
+<div class="container">
+  
+    <div class=" row table-responsive">
+        <div class="container ">
+        <h4>Product List</h4>
+            <button class="btn btn-primary float-end my-2"(click)="isOpen=true">NEW</button>
+        </div>
+    <ngx-table [columns]="columns" [data]="products">
+    <ng-template let-row>
+        <td>
+          <span class="font-small">{{ row.name }}</span>
+        </td>
+        <td>
+          <span class="font-small">{{ row.desc|slice:0:100}}...</span>
+        </td>
+        <td>
+          <span class="font-small">{{ row.price | currency}}</span>
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="openModal(row)">
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button class="btn btn-danger btn-sm mx-2" (click)="deleteProduct(row)">
+           <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </ng-template>
+      
+    </ngx-table>
+</div></div>
+
+
+<div *ngIf="isOpen" class="modal active modal-md">
+    <div class="modal-overlay"></div>
+    <div class="modal-container" role="document">
+      <div class="modal-header">
+        <button
+          href="#modals-sizes"
+          class="btn btn-clear float-right"
+          (click)="closeModal()"
+          aria-label="Close"
+        ></button>
+        <div class="modal-title h5 float-left">{{isUpdate?'Update product':'New Product'}}</div>
+      </div>
+      <form [formGroup]="productForm" (ngSubmit)="isUpdate?updateProduct():createProduct()">
+      <div class="modal-body">
+        
+        <div class="content">
+                <app-input [control]="$any(productForm.get('name'))" [required]="true"
+                [inputAttributes]="{}" label="Product Name"></app-input>
+
+                <app-input [control]="$any(productForm.get('price'))" [required]="true"
+                [inputAttributes]="{type:'number'}" label="Price"></app-input>
+
+                <app-input [control]="$any(productForm.get('image'))" [required]="true"
+                [inputAttributes]="{type:'text'}" label="Icon class"></app-input>
+
+                <app-input [control]="$any(productForm.get('desc'))" [required]="true"
+                inputType="text-area"
+                [inputAttributes]="{}"
+                label="Product Description"></app-input>
+
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger " (click)="closeModal()">Close</button>
+        <button type="submit" class="btn btn-primary " >{{isUpdate?'Update':'Create'}}</button>
+      </div>
+    </form>
+    </div>
+  </div>

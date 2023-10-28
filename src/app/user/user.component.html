@@ -1,0 +1,20 @@
+<!-- <app-header></app-header>
+<div class="">
+ <div class="sidebar">
+       <app-sidebar></app-sidebar>
+ </div>
+    <main>
+        <div class="container bg-light min-vh-100">
+    
+        </div>
+    </main>
+</div> -->
+
+
+<app-custome-header [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded">
+
+</app-custome-header>
+<div class="content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+    <h1>hi</h1>
+  <router-outlet></router-outlet>
+</div>

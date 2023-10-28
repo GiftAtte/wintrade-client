@@ -1,0 +1,41 @@
+
+<div class="signUp bg-primary" style="background-image: url(../assets/img/auth-bg.png);background-repeat: no-repeat; background-size: cover; background-position:left ; ">
+  
+  <div class="col-md-4 col-xs-12 ">
+    
+   <form class="bg-light p-5 form  mx-auto" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="container text-center">
+      <img src="../../../assets/img/logo_prev_ui.png" style="height: 100px; margin-bottom: 0px;" alt="">
+    </div>
+    <h1 class="text-left fs-4 text-capitalize mb-4 text-muted">Login</h1>
+    <ng-container *ngIf="loginError">
+      <span class="text-danger">
+          Invalid credentials
+      </span>
+    </ng-container>
+     
+     <app-input label="Email" 
+     [control]="$any(loginForm.get('email'))"
+     [required]="true"
+     [email]="true"
+     [inputAttributes]="{ placeholder:'enter email' ,type:'email'}">
+     </app-input>
+
+     <app-input label="Password" 
+     [control]="$any(loginForm.get('password'))"
+     [required]="true"
+     [inputAttributes]="{placeholder: 'enter password',type:'password'}">
+     </app-input>
+
+     
+    <div class=" mt-5">
+       <button type="submit" class="btn btn-primary  float-center">Login</button>
+     
+    </div>
+    <div class="mb-5">
+      <a class="nav-item mb-5 py-3 float-end pointer" (click)="navigate('/signup')">Dont have account? signUp</a>
+    </div>
+   </form>
+  </div>
+ </div>
+ 

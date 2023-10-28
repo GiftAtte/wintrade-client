@@ -1,0 +1,16 @@
+<div class="px-3 py-2 mb-5 bg-primary">
+ <button (click)="toggleSidebar()" class="border-0  btn-info">
+   <i class="las la-bars"></i>
+ </button>
+</div>
+<div class="sidebar d-flex align-items-center flex-column bg-light text-primary" [ngClass]="{'active': isSidebarOpen}">
+ <button (click)="toggleSidebar()" class="border-0 btn-outline-light close-button">
+   <i class="las la-times"></i> <!-- You can use an appropriate icon for closing -->
+ </button>
+ <ul>
+   <li><a href="#">Buy</a></li>
+   <li><a href="#">Profits</a></li>
+   <li><a href="#">Update</a></li>
+   <li><a class="mouse-pointer" (click)="logout()">Logout</a></li>
+ </ul>
+</div>

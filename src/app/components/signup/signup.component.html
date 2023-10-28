@@ -1,0 +1,48 @@
+<div class="signUp bg-primary" style="background-image: url(../assets/img/auth-bg.png);background-repeat: no-repeat; background-size: cover; background-position: center; height: 100vh; ">
+  
+ <div class="col-md-6 col-xs-12">
+  <form class="bg-light p-5 form  mx-auto" [formGroup]="signupForm" (ngSubmit)="signUp()">
+    <div class="container m-auto text-center">
+      <img src="../../../assets/img/logo_prev_ui.png" style="height: 100px; margin-bottom: 0px;" alt=""></div>
+   <h1 class="text-left fs-4 text-capitalize text-muted ">Create  Account</h1>
+<ng-container  *ngIf="isInvalidForm">
+  <span class="text-danger">Invalid Form!. Please fill all fields</span>
+</ng-container>
+<div class="row">
+  
+   <div class="mb-3 col-md-6">
+    <label for="exampleInputEmail1" class="form-label">Full Name</label>
+    <input formControlName="name" type="text" class="form-control" id="name" aria-describedby="emailHelp">
+  </div>
+    <div class="mb-3 col-md-6">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3 col-md-6">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input formControlName="password"  type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 col-md-6">
+     <label for="exampleInputPassword1" class="form-label">Confrim Password</label>
+     <input formControlName="confirm_password" type="password" class="form-control" id="exampleInputPassword1">
+     <span class="text-danger" *ngIf="passwordMatchedError">Password Not Match!</span>
+    </div>
+    <div class="mb-3 col-md-12">
+      <label for="exampleInputPassword1" class="form-label">Phone Number</label>
+      <input formControlName="phone_number" type="text" class="form-control" id="exampleInputPassword1">
+     </div>
+     <div class="row mb-5 mt-3">
+      <div class="col-md-6 ">
+        <button type="submit" class="btn btn-primary" >Sign Up</button>
+       </div>
+      
+       <div class="col-md-6">
+        <a class="float-end pointer mt-2" (click)="navigate('login')">Have an account? Login</a>
+      </div>
+     </div>
+   
+
+  </div>
+  </form>
+ </div>
+</div>

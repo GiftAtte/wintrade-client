@@ -1,0 +1,50 @@
+<section  class=" bg-primary min-vh-100 d-flex flex-column align-items-center justify-content-center" style="background-image: url(../../../assets/img/auth-bg.png); background-size: cover;">
+    <div class="container py-5">
+     <h1 class="display-5 mb-5 text-capitalize text-white mt-2">Testimonials</h1>
+     <div class="row text-center g-3">
+      
+
+<owl-carousel-o [options]="customOptions" class="slider-service">
+  
+    <ng-container *ngFor="let slide of slides" >
+    
+            <ng-template carouselSlide [id]="slide.id" [width]="400" >
+                  
+                    <div class="mx-2 row">
+                        
+
+
+                        <div class="card min-w-100">
+                            <div class=" d-flex justify-content-center mt-2">
+                                <img [src]="slide.img" class="card-img-top " alt="...">
+                            </div>
+                            <div class="card-body max-vh-100">
+                              <h5 class="card-title">{{slide.author}}</h5>
+                              <ng-container *ngIf="!slide.fullText">
+                                <p class="card-text text-start">
+
+                                    {{slide.msg|slice:0:400}} ....
+                                  </p>
+                              </ng-container>
+                              <ng-container *ngIf="slide.fullText">
+                                <p class="card-text text-start">
+
+                                    {{slide.msg}}
+                                  </p>
+                              </ng-container>
+                              <button class="btn btn-flat text-primary" (click)="toggleFullText(slide.id)">{{slide.fullText?'Read Less':'Read more'}}</button>
+                            </div></div>
+                    </div>
+              
+              </ng-template>
+
+
+    </ng-container>
+      
+    </owl-carousel-o>
+    <p class="text-white display-6 mt-5 fs-4">
+        Join Us Today and Start Your Journey to Financial Freedom!
+    </p>
+</div>
+</div>
+</section>

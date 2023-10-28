@@ -1,11 +1,26 @@
-<div class="text-bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden col-md-5">
+<!-- <div class="text-bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden col-lg-6">
     <div class="my-3 pt-3">
        <i class="bi bi-reception-4"></i>
-      <h2 class="display-6">Our Vission</h2>
+      <h2 class="display-6">{{title}}</h2>
       <p class="lead">Wintrade</p>
     </div>
     <div class=" shadow-sm mx-auto " style="width: 90%; height: 300px; border-radius: 21px 21px 0 0;">
-        To help individuals, institutions,business owners and communities 
-         build wealth and realize their dreams.
+        {{content}}
     </div>
   </div>
+ -->
+
+ 
+    <div class="card h-100 " [ngClass]="borderClass">
+     <div class="card-body text-center border-0" [ngClass]="bodyClass">
+      <div class="h1 mb-3  text-black circle-icon mx-auto d-flex  justify-content-center text-sm-start">
+      <ng-content select="i"></ng-content>
+      </div>
+      <h3 >
+       {{title}}
+      </h3>
+      <div class=" px-md-5 px-sm-1 fs-sm-6" [ngClass]="textClass">{{content}}</div>
+      <button *ngIf="showLink" class="btn  btn-lg my-3"  [ngClass]="buttonClass" (click)="navigateTo(path)">{{buttonText}}</button>
+     </div>
+        </div>
+   

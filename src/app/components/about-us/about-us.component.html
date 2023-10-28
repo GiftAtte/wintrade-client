@@ -1,0 +1,48 @@
+<section>
+
+ <div class="container">
+
+  <div class="mb-5" >
+   <h1 class="display-5 mb-3 text-capitalize ">Who we are</h1>
+   <p *ngIf="!isReadMore" class=" fs-md-5 fs-sm-6">
+    {{ content | slice:0:448 }} <!-- Display the first 200 characters -->
+  </p>
+  <p *ngIf="isReadMore" class=" fs-5">
+ 
+    {{ content }} <!-- Display the full content when showFullContent is true -->
+  </p>
+  <a (click)="toggleContent()" class="text-primary font-bold fs-5" style="cursor: pointer;">
+    {{ isReadMore ? 'Read Less' : 'Read More' }}
+  </a>
+  </div>
+  <div class="d-md-flex align-items-center gap-3">
+    <div class="col-md-6 mb-4 mb-md-0">
+     <img src="../../../assets/img/img2.jpg"  alt="" class="img-responsive h-100 w-100">
+    </div>
+
+  
+
+
+
+<div class="col-md-6">
+  <app-info-box 
+ [iconClass]="'bi bi-arrow-up-left-circle'"
+ [textClass]="'text-sm-start fs-sm-6 text-md-center'"
+ [title]="'Our Vision'" 
+ [content]="vission">
+ <i class="bi bi-arrow-up-left-circle-fill text-primary"></i>
+</app-info-box>
+  <app-info-box
+  [textClass]="'text-sm-start fs-sm-6 text-md-center'"
+  [iconClass]="'bi bi-arrow-up-left-circle'"
+  [title]="'Our Mission'"
+  [content]="'To use technology and  build a sustainable, long-term value,and empower people to financial freedom.'"
+ > <i class="bi bi-arrow-up-left-circle-fill text-primary"></i>
+ </app-info-box>
+</div>
+
+</div>
+
+ </div>
+
+</section>
